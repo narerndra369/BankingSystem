@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking</title>
+    <style>
+        body {
+            background-image: url("{% static 'bankingapplication/image.png' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .action-link,
+        .logout-link {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            font-size: 16px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .action-link:hover {
+            background-color: #45a049;
+        }
+
+        .logout-link {
+            background-color: #f44336;
+        }
+
+        .logout-link:hover {
+            background-color: #e53935;
+        }
+
+        .alert {
+            color: #856404;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 10px;
+            margin: 15px auto;
+            width: 80%;
+            border-radius: 5px;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: black;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% if message is not None %}
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ message }}
+    </div>
+    {% endif %}
+    <h1 style="color: rgb(121, 243, 15); font-size:xx-large;">Welcome to Banking</h1>
+    <a href="/balance" class="action-link">Balance View</a>
+    <a href="/transactionhistory" class="action-link">View Transaction History</a>
+    <a href="/transfer" class="action-link">Transfer</a>
+    <a href="/logout1" class="logout-link">Logout</a>
+</body>
+</html>
